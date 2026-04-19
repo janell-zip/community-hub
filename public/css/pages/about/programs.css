@@ -1,0 +1,231 @@
+.program-wrap {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2.5rem;
+    padding: 5rem 3rem;
+    background: #0f1e14;
+}
+
+/* ── Header ── */
+.program-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.program-eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light-gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.program-eyebrow::before,
+.program-eyebrow::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--dark-yellow);
+    flex-shrink: 0;
+}
+
+.program-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+}
+
+.program-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(248, 245, 239, 0.55);
+    max-width: 520px;
+}
+
+/* ── Nav ── */
+.program-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-top: 0.3rem;
+}
+
+.program-nav a {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(248, 245, 239, 0.5);
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+}
+
+.program-nav a:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--white);
+}
+
+.program-nav a.active {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    background: var(--dark-yellow);
+    color: var(--white);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+}
+
+/* ── Content ── */
+.program-content {
+    background: #faf8f4;
+    border-radius: 16px;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+}
+
+.program-content h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 0.5rem;
+}
+
+.program-content .tagline {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.87rem;
+    color: #6b7280;
+    margin-bottom: 1.4rem;
+    font-style: italic;
+}
+
+.program-content p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.84rem;
+    color: #222;
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+    text-align: justify;
+}
+
+/* ── Tab panels ── */
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* ── Figure ── */
+.tab-figure {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.tab-figure img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    height: 320px;
+    display: block;
+}
+
+.tab-figure figcaption {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem;
+    color: #5b5d61;
+    line-height: 1.4;
+}
+
+.tab-figure figcaption span {
+    flex: 1;
+}
+
+.ext-link {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.ext-link svg {
+    width: 13px;
+    height: 13px;
+    stroke: #5b5d61;
+    transition: stroke 0.15s;
+}
+
+@media (max-width: 1024px) {
+    .program-wrap {
+        padding: 4rem 2rem;
+        grid-template-columns: 140px 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .program-wrap {
+        grid-template-columns: 1fr;
+        padding: 3.5rem 1.5rem;
+        gap: 2rem;
+    }
+
+    .program-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        padding-top: 0;
+        justify-content: center;
+    }
+
+    .program-nav a {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    .program-nav a.active {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.85rem;
+    }
+
+    .tab-figure img {
+        height: 240px;
+    }
+}
+
+@media (max-width: 480px) {
+    .program-wrap {
+        padding: 3rem 1.25rem;
+        gap: 1.5rem;
+    }
+
+    .tab-figure img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 375px) {
+    .program-nav a {
+        font-size: 0.7rem;
+    }
+}
