@@ -6,7 +6,7 @@
 <nav id="navbar" class="{{ $solid ? 'scrolled' : '' }}" aria-label="Main navigation">
     <a href="/" class="nav-brand">
         <div class="nav-logo">
-            <img src="{{ asset('img/spup_logo_alt.png') }}" alt="SPUP CDC Logo">
+            <img src="{{ asset('img/spup_logo.png') }}" alt="SPUP CDC Logo">
         </div>
         <div class="nav-org-name">
             SPUP-CDC Foundation, Inc.

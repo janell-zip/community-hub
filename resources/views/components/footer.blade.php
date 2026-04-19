@@ -3,7 +3,7 @@
 
         <div class="footer-brand">
             <div class="footer-logo-wrap">
-                <img src="{{ asset('img/spup_logo_alt.png') }}" alt="CDC Logo">
+                <img src="{{ asset('img/spup_logo.png') }}" alt="CDC Logo">
             </div>
             <p class="footer-org-name">SPUP Community Development Center Foundation, Inc.</p>
             <p class="footer-tagline">Rooted in community. Driven by purpose.</p>

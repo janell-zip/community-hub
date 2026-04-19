@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{ asset('img/spup_logo_alt.png') }}">
+    <link rel="icon" href="{{ asset('img/spup_logo.png') }}">
     <title>@yield('title', 'Admin — SPUP-CDCFI')</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
 <body class="admin-body">
     <nav class="admin-nav" id="admin-nav">
         <a class="admin-nav-brand" href="{{ route('admin.map') }}">
-            <img src="{{ asset('img/spup_logo_alt.png') }}" alt="SPUP CDC" class="admin-nav-logo">
+            <img src="{{ asset('img/spup_logo.png') }}" alt="SPUP CDC" class="admin-nav-logo">
             <div class="admin-nav-brand-text">
                 <span class="admin-nav-brand-name">SPUP&dash;CDCFI</span>
                 <span class="admin-nav-brand-sub">Admin Portal</span>

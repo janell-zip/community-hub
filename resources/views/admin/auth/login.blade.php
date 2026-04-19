@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{ asset('img/spup_logo_alt.png') }}">
+    <link rel="icon" href="{{ asset('img/spup_logo.png') }}">
     <title>Login - SPUP-CDCFI Admin</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
         <div class="login-card">
 
             <div class="login-brand">
-                <img src="{{ asset('img/spup_logo_alt.png') }}" alt="SPUP CDC" class="login-logo">
+                <img src="{{ asset('img/spup_logo.png') }}" alt="SPUP CDC" class="login-logo">
                 <div class="login-brand-text">
                     <span class="login-brand-name">Community Mapping &<br>Program Planning System</span>
                 </div>
