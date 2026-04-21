@@ -9,8 +9,8 @@
             <img src="{{ asset('img/spup_logo.png') }}" alt="SPUP CDC Logo">
         </div>
         <div class="nav-org-name">
-            SPUP-CDC Foundation, Inc.
-            <span>Serving &amp; Empowering Communities</span> <!-- Replace with actual tagline if available -->
+            St. Paul University Philippines
+            <span>Community Development Center, Inc.</span> 
         </div>
     </a>
 
