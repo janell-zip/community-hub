@@ -5,13 +5,13 @@
             <p class="wwa-eyebrow">Who We Are</p>
             <h2 class="wwa-headline">Dreaming Big, Starting <em>Local</em></h2>
             <p class="wwa-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
-            </p>
+                The Community Development Center &lpar;CDC&rpar; is SPUP&apos;s social service arm, leading the 
+                implementation of community extension services programs that advance sustainable 
+                development, global citizenship education, volunteerism, and participatory action research. 
             <p class="wwa-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.
+                Through its initiatives, the CDC ensures that the University&apos;s mission of service 
+                reaches partner communities and contributes meaningfully to national and global development priorities.
+            </p>
             </p>
             <a href="/about" class="wwa-btn">Learn Our Story</a>
         </div>
