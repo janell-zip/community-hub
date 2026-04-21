@@ -23,7 +23,6 @@
             <a href="/about" class="{{ request()->is('about') ? 'active' : '' }}">About</a>
         </li>
 
-        <!-- Create programs calendar -->
         <li>
             <a href="/programs" class="{{ request()->is('programs') ? 'active' : '' }}">Programs &amp; Events</a>
         </li>
