@@ -12,22 +12,40 @@
 
         <div class="cta-partners">
             <div class="cta-partner">
-                <img src="{{ asset('img/home/cta/dswd_logo.png') }}" alt="Partner 1">
+                <img src="{{ asset('img/home/cta/regional_area_based_standards_network_logo.jpg') }}" alt="Regional Area-Based Standards Network">
             </div>
             <div class="cta-partner">
-                <img src="{{ asset('img/home/cta/dswd_logo.png') }}" alt="Partner 2">
+                <img src="{{ asset('img/home/cta/provincial_school_board_logo.jpg') }}" alt="Provincial School Board Cagayan">
             </div>
             <div class="cta-partner">
-                <img src="{{ asset('img/home/cta/dswd_logo.png') }}" alt="Partner 3">
+                <img src="{{ asset('img/home/cta/pdrrmc_logo.jpg') }}" alt="Provincial Disaster Risk Reduction Management Council">
             </div>
             <div class="cta-partner">
-                <img src="{{ asset('img/home/cta/dswd_logo.png') }}" alt="Partner 4">
+                <img src="{{ asset('img/home/cta/lcpc_logo.png') }}" alt="Local Council for the Protection of Children">
             </div>
             <div class="cta-partner">
-                <img src="{{ asset('img/home/cta/dswd_logo.png') }}" alt="Partner 5">
+                <img src="{{ asset('img/home/cta/municipal_advisory_council_logo.png') }}" alt="Municipal Advisory Council">
             </div>
             <div class="cta-partner">
-                <img src="{{ asset('img/home/cta/dswd_logo.png') }}" alt="Partner 6">
+                <img src="{{ asset('img/home/cta/cdrrmc_logo.jpg') }}" alt="Municipal Disaster Risk Reduction Management Council">
+            </div>
+            <div class="cta-partner">
+                <img src="{{ asset('img/home/cta/childfund_logo.png') }}" alt="ChildFund Philippines">
+            </div>
+            <div class="cta-partner">
+                <img src="{{ asset('img/home/cta/global_peace_foundation_logo.png') }}" alt="Global Peace Foundation Philippines">
+            </div>
+            <div class="cta-partner">
+                <img src="{{ asset('img/home/cta/save_the_children_logo.png') }}" alt="Save the Children Philippines">
+            </div>
+            <div class="cta-partner">
+                <img src="{{ asset('img/home/cta/shelterbox_logo.png') }}" alt="ShelterBox Philippines">
+            </div>
+            <div class="cta-partner">
+                <img src="{{ asset('img/home/cta/cfsi_logo.png') }}" alt="Community and Family Services International">
+            </div>
+            <div class="cta-partner">
+                <img src="{{ asset('img/home/cta/start_network_logo.png') }}" alt="Start Ready Cagayan Consortium">
             </div>
         </div>
 
