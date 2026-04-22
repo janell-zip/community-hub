@@ -22,4 +22,5 @@
 @push('scripts')
     <script src="{{ asset('js/home/what-we-do.js') }}" defer></script>
     <script src="{{ asset('js/home/stats.js') }}" defer></script>
+    <script src="{{ asset('js/home/cta.js') }}" defer></script>
 @endpush
