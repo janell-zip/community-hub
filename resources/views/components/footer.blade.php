@@ -5,25 +5,25 @@
             <div class="footer-logo-wrap">
                 <img src="{{ asset('img/spup_logo.png') }}" alt="CDC Logo">
             </div>
-            <p class="footer-org-name">SPUP Community Development Center Foundation, Inc.</p>
-            <p class="footer-tagline">Rooted in community. Driven by purpose.</p>
+            <p class="footer-org-name">St. Paul University Philippines</p>
+            <p class="footer-tagline">Community Development Center Foundation, Inc.</p>
             <div class="footer-socials">
-            <a href="https://spup.edu.ph/spup-community-development-center-foundation-incorporated-spup-cdcfi/" aria-label="School Website" target="_blank">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-            </a>
-            <a href="https://www.facebook.com/p/SPUP-Community-Development-Center-Foundation-Inc-100069385013106/" aria-label="Facebook" target="_blank">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                </svg>
-            </a>
-            <a href="mailto:info@spup.edu.ph" aria-label="Email">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-            </a>
-</div>
+                <a href="https://spup.edu.ph/spup-community-development-center-foundation-incorporated-spup-cdcfi/" aria-label="School Website" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/p/SPUP-Community-Development-Center-Foundation-Inc-100069385013106/" aria-label="Facebook" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="mailto:info@spup.edu.ph" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
 
         <div class="footer-col">
