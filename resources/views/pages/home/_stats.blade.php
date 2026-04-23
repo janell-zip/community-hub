@@ -15,7 +15,7 @@
                     <span class="impact-suffix">+</span>
                 </div>
                 <p class="impact-label">Years of Service</p>
-                <p class="impact-sublabel">Lorem ipsum dolor sit amet.</p>
+                <p class="impact-sublabel">Committed to lasting change.</p>
             </div>
 
             <div class="impact-card" style="background-image: url('{{ asset('img/home/stats/impact2.jpg') }}')">
@@ -29,7 +29,7 @@
                     <span class="impact-suffix">+</span>
                 </div>
                 <p class="impact-label">Families Served</p>
-                <p class="impact-sublabel">Lorem ipsum dolor sit amet.</p>
+                <p class="impact-sublabel">Bridging the gap for many.</p>
             </div>
 
             <div class="impact-card" style="background-image: url('{{ asset('img/home/stats/impact3.jpg') }}')">
@@ -43,7 +43,7 @@
                     <span class="impact-suffix"></span>
                 </div>
                 <p class="impact-label">Barangays Reached</p>
-                <p class="impact-sublabel">Lorem ipsum dolor sit amet.</p>
+                <p class="impact-sublabel">Growing our local presence.</p>
             </div>
 
             <div class="impact-card" style="background-image: url('{{ asset('img/home/stats/impact4.jpg') }}')">
@@ -57,7 +57,7 @@
                     <span class="impact-suffix">+</span>
                 </div>
                 <p class="impact-label">Active Programs</p>
-                <p class="impact-sublabel">Lorem ipsum dolor sit amet.</p>
+                <p class="impact-sublabel">Solutions for every sector.</p>
             </div>
 
         </div>
@@ -67,8 +67,10 @@
         <div class="impact-header">
             <p class="impact-eyebrow">Our Impact</p>
             <h2 class="impact-headline">Small Steps,<br> <em>Big Change</em></h2>
-            <p class="impact-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#cta" class="impact-btn">Here's to More</a>
+            <p class="impact-body">With over a decade of service, our programs have reached thousands of families and multiple barangays. 
+                We focus on effective resource management and inclusive development to ensure every "small step" leads to lasting, 
+                large-scale community transformation.</p>
+            <a href="#cta" class="impact-btn">See Who's Involved</a>
         </div>
 
     </div>
