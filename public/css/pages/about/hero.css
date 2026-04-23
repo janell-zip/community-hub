@@ -8,19 +8,16 @@
 }
 
 .about-hero-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: end;
-    padding-bottom: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 2rem;
+    overflow: hidden;
 }
 
 .about-hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .about-hero-headline {
@@ -39,7 +36,7 @@
 }
 
 .about-hero-right {
-    display: flex;
+    display: block;
     flex-direction: column;
     gap: 1.25rem;
     padding-bottom: 0.5rem;
@@ -55,6 +52,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
+    padding-bottom: 1.25rem;
 }
 
 .about-hero-eyebrow::before {
@@ -73,7 +71,7 @@
     line-height: 1.85;
     color: #222;
     text-align: justify;
-    max-width: 460px;
+    max-width: 100%;
 }
 
 .about-hero-image {
