@@ -298,6 +298,14 @@
         text-align: left;
     }
 
+    .impact-headline {
+        font-size: clamp(1.9rem, 3.5vw, 2.7rem); 
+    }
+
+    .impact-headline br {
+        display: none;
+    }
+
     .impact-eyebrow {
         flex-direction: row;
     }
@@ -330,6 +338,15 @@
         padding: 1.25rem 1rem;
     }
 
+    .impact-headline {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+
+    .impact-body {
+        font-size: 0.9rem;
+        line-height: 1.75;
+    }
+
     .impact-sublabel {
         display: none;
     }
@@ -337,11 +354,12 @@
 
 @media (max-width: 375px) {
     .impact-headline {
-        font-size: clamp(1.5rem, 7vw, 2rem);
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
     }
 
     .impact-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
     }
 
     .impact-card {
@@ -350,5 +368,9 @@
 
     .impact-label {
         font-size: 0.72rem;
+    }
+
+    .impact-body {
+        font-size: 0.85rem;
     }
 }

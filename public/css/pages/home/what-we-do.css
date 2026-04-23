@@ -352,9 +352,6 @@
     transform: translateX(3px);
 }
 
-/* =============================================================
-RESPONSIVE
-============================================================= */
 @media (max-width: 900px) {
     #what-we-do {
         padding: 5rem 0 4rem;
@@ -378,6 +375,12 @@ RESPONSIVE
     }
 }
 
+@media (max-width: 768px) {
+    .wwd-headline {
+        font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+    }
+}
+
 @media (max-width: 600px) {
     .wwd-header {
         margin-bottom: 2.5rem;
@@ -398,9 +401,29 @@ RESPONSIVE
         padding: 1.5rem;
     }
 
-    /* Hide nav arrows on very small screens — swipe only */
     .wwd-btn-prev,
     .wwd-btn-next {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .wwd-headline {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+
+    .wwd-subtext {
+        font-size: 0.9rem;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 375px) {
+    .wwd-headline {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+    }
+
+    .wwd-subtext {
+        font-size: 0.85rem;
     }
 }

@@ -178,6 +178,10 @@
     #cta {
         padding: 4rem 1.5rem;
     }
+
+    .cta-headline {
+        font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+    }
 }
 
 @media (max-width: 480px) {
@@ -188,10 +192,23 @@
     .cta-inner {
         gap: 2.25rem;
     }
+
+    .cta-headline {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+
+    .cta-body {
+        font-size: 0.9rem;
+        line-height: 1.75;
+    }
 }
 
 @media (max-width: 375px) {
     .cta-headline {
-        font-size: clamp(1.6rem, 7vw, 2rem);
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+    }
+
+    .cta-body {
+        font-size: 0.85rem;
     }
 }
