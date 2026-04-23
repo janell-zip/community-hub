@@ -1,8 +1,8 @@
 #what-we-do {
-        background: #f2f3f4;
-        padding: 5rem 0 4rem;
-        overflow: hidden;
-        position: relative;
+    background: #f2f3f4;
+    padding: 5rem 0 4rem;
+    overflow: hidden;
+    position: relative;
 }
 
 #what-we-do::before {
@@ -56,7 +56,7 @@
     font-size: 0.95rem;
     font-weight: 300;
     color: #222;
-    max-width: 520px;
+    max-width: 800px;
     margin: 0 auto;
     line-height: 1.75;
 }
@@ -192,17 +192,15 @@
     flex-shrink: 0;
 }
 
-/* Subtitle */
 .wwd-card-sub {
     font-family: 'Manrope', sans-serif;
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(248, 245, 239, 0.75);
     line-height: 1.65;
     margin-bottom: 1.25rem;
 }
 
-/* Learn more link */
 .wwd-card-link {
     display: inline-flex;
     align-items: center;

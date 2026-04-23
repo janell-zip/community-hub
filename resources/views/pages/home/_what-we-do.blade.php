@@ -3,8 +3,9 @@
         <p class="wwd-eyebrow">What We Do</p>
         <h2 class="wwd-headline">Our Programs</h2>
         <p class="wwd-subtext">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.
+            The CES Program Components outline the key areas where SPUP promotes holistic development. 
+            Rooted in the University&apos;s Vision&dash;Mission and the Paulinian Core Values, these components 
+            guide all extension activities to ensure they are responsive, inclusive, and sustainable.
         </p>
     </div>
 
@@ -26,7 +27,8 @@
                     <div class="wwd-card-divider">
                         <span class="wwd-divider-dot"></span>
                     </div>
-                    <p class="wwd-card-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <p class="wwd-card-sub">This focuses on the development of the spiritual dimension of 
+                        individuals and communities.</p>
                     <a href="{{ route('about') }}#values" class="wwd-card-link">
                         Learn more
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -47,7 +49,8 @@
                     <div class="wwd-card-divider">
                         <span class="wwd-divider-dot"></span>
                     </div>
-                    <p class="wwd-card-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <p class="wwd-card-sub">This focuses on the  growth of the civic and 
+                        participatory dimension of community life. </p>
                     <a href="{{ route('about') }}#political" class="wwd-card-link">
                         Learn more
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -68,7 +71,8 @@
                     <div class="wwd-card-divider">
                         <span class="wwd-divider-dot"></span>
                     </div>
-                    <p class="wwd-card-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <p class="wwd-card-sub">This addresses community livelihoods by 
+                        boosting income and improving resource management.</p>
                     <a href="{{ route('about') }}#economic" class="wwd-card-link">
                         Learn more
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -89,7 +93,8 @@
                     <div class="wwd-card-divider">
                         <span class="wwd-divider-dot"></span>
                     </div>
-                        <p class="wwd-card-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                        <p class="wwd-card-sub">This focuses on the enhancement of the social and cultural
+                             dimensions of community life.</p>
                     <a href="{{ route('about') }}#sociocultural" class="wwd-card-link">
                         Learn more
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -110,7 +115,8 @@
                     <div class="wwd-card-divider">
                         <span class="wwd-divider-dot"></span>
                     </div>
-                    <p class="wwd-card-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <p class="wwd-card-sub">This underscores the importance of care for creation and responsible environmental 
+                        stewardship.</p>
                     <a href="{{ route('about') }}#ecological" class="wwd-card-link">
                         Learn more
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
