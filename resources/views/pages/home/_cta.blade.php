@@ -6,7 +6,10 @@
             <p class="cta-eyebrow">Join the Mission</p>
             <h2 class="cta-headline">Beyond the Title,<br><em>Be the Catalyst</em></h2>
             <p class="cta-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                SPUP-CDC fosters sustainable growth through inclusive partnerships with
+                government agencies, NGOs, and the private sector. Guided by equity and transparency,
+                our collaborative framework empowers Filipino communities through 
+                multi-sectoral action.
             </p>
         </div>
 
