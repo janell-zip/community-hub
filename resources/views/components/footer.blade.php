@@ -64,7 +64,7 @@
     <div class="footer-bottom">
         <p>&copy; {{ date('Y') }} SPUP Community Development Center Foundation, Inc. All rights reserved.</p>
         <div class="footer-bottom-links">
-            <a href="https://www.linkedin.com/in/janell-tong/">Developed by Maria Riana Janell Tong</a>
+            <a href="https://www.linkedin.com/in/janell-tong/" target="_blank">Developed by Maria Riana Janell Tong</a>
         </div>
     </div>
 </footer>
