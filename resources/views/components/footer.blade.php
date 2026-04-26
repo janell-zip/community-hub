@@ -36,17 +36,6 @@
         </div>
 
         <div class="footer-col">
-            <h4 class="footer-col-title">Our Programs</h4>
-            <ul>
-                <li><a href="/about#values">Values/Spiritual Formation</a></li>
-                <li><a href="/about#political">Political Development</a></li>
-                <li><a href="/about#economic">Economic Development</a></li>
-                <li><a href="/about#sociocultural">Socio-Cultural Development</a></li>
-                <li><a href="/about#ecological">Ecological Development</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
             <h4 class="footer-col-title">Get In Touch</h4>
             <ul class="footer-contact-list">
                 <li>
@@ -75,8 +64,7 @@
     <div class="footer-bottom">
         <p>&copy; {{ date('Y') }} SPUP Community Development Center Foundation, Inc. All rights reserved.</p>
         <div class="footer-bottom-links">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Use</a>
+            <a href="https://www.linkedin.com/in/janell-tong/">Developed by Maria Riana Janell Tong</a>
         </div>
     </div>
 </footer>
