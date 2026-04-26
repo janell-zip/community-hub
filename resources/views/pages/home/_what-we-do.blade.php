@@ -19,7 +19,7 @@
 
         <div class="wwd-slider" role="list">
             <article class="wwd-card" role="listitem"
-                style="background-image: url('{{ asset('img/programs/values.jpg') }}')">
+                style="background-image: url('{{ asset('img/home/programs/values.webp') }}')">
                 <div class="wwd-card-overlay"></div>
                 <div class="wwd-card-body">
                     <span class="wwd-card-tag">01</span>
@@ -29,19 +29,11 @@
                     </div>
                     <p class="wwd-card-sub">This focuses on the development of the spiritual dimension of 
                         individuals and communities.</p>
-                    <a href="{{ route('about') }}#values" class="wwd-card-link">
-                        Learn more
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
                 </div>
             </article>
 
             <article class="wwd-card" role="listitem"
-                style="background-image: url('{{ asset('img/programs/political.jpg') }}')">
+                style="background-image: url('{{ asset('img/home/programs/political.webp') }}')">
                 <div class="wwd-card-overlay"></div>
                 <div class="wwd-card-body">
                     <span class="wwd-card-tag">02</span>
@@ -51,19 +43,11 @@
                     </div>
                     <p class="wwd-card-sub">This focuses on the  growth of the civic and 
                         participatory dimension of community life. </p>
-                    <a href="{{ route('about') }}#political" class="wwd-card-link">
-                        Learn more
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
                 </div>
             </article>
 
             <article class="wwd-card" role="listitem"
-                style="background-image: url('{{ asset('img/programs/economic.jpg') }}')">
+                style="background-image: url('{{ asset('img/home/programs/economic.webp') }}')">
                 <div class="wwd-card-overlay"></div>
                 <div class="wwd-card-body">
                     <span class="wwd-card-tag">03</span>
@@ -73,19 +57,11 @@
                     </div>
                     <p class="wwd-card-sub">This addresses community livelihoods by 
                         boosting income and improving resource management.</p>
-                    <a href="{{ route('about') }}#economic" class="wwd-card-link">
-                        Learn more
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
                 </div>
             </article>
 
             <article class="wwd-card" role="listitem"
-                style="background-image: url('{{ asset('img/programs/socio.jpg') }}')">
+                style="background-image: url('{{ asset('img/home/programs/socio.webp') }}')">
                 <div class="wwd-card-overlay"></div>
                 <div class="wwd-card-body">
                     <span class="wwd-card-tag">04</span>
@@ -95,19 +71,11 @@
                     </div>
                         <p class="wwd-card-sub">This focuses on the enhancement of the social and cultural
                              dimensions of community life.</p>
-                    <a href="{{ route('about') }}#sociocultural" class="wwd-card-link">
-                        Learn more
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
                 </div>
             </article>
 
             <article class="wwd-card" role="listitem"
-                style="background-image: url('{{ asset('img/programs/ecological.jpg') }}')">
+                style="background-image: url('{{ asset('img/home/programs/ecological.webp') }}')">
                 <div class="wwd-card-overlay"></div>
                 <div class="wwd-card-body">
                     <span class="wwd-card-tag">05</span>
@@ -117,14 +85,6 @@
                     </div>
                     <p class="wwd-card-sub">This underscores the importance of care for creation and responsible environmental 
                         stewardship.</p>
-                    <a href="{{ route('about') }}#ecological" class="wwd-card-link">
-                        Learn more
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
                 </div>
             </article>
         </div>
@@ -140,7 +100,7 @@
     <div class="wwd-dots" aria-label="Slider navigation"></div>
 
     <div class="wwd-footer-link">
-        <a href="{{ route('about') }}#what-we-do" class="wwd-all-link">
+        <a href="{{ route('about') }}#programs" class="wwd-all-link">
             View all programs
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
