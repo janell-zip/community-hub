@@ -1,16 +1,14 @@
 <section class="hero" id="hero">
-    <div class="hero-bg" style="background-image: url('{{ asset('img/hero.jpg')}}')"></div>
+    <div class="hero-bg" style="background-image: url('{{ asset('img/home/hero.webp')}}')"></div>
     <div class="hero-tint"></div>
 
     <div class="hero-content">
         <p class="hero-eyebrow">Community Development Center</p>
 
-        <!-- Replace headline -->
         <h1 class="hero-headline">
             Building <em>Stronger</em><br>Communities Together
         </h1>
 
-        <!-- Replace description -->
         <p class="hero-description">
             We empower individuals, strengthen families, and uplift communities
             through sustainable programs, partnerships, and grassroots action.
