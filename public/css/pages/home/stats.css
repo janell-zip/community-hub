@@ -89,7 +89,8 @@
 }
 
 .impact-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     margin-top: 1.75rem;
     font-family: 'Manrope', sans-serif;
     font-size: 0.78rem;
@@ -108,6 +109,13 @@
     background: var(--dark-yellow);
     color: var(--white);
     transform: translateY(-2px);
+}
+
+.impact-btn svg {
+    width: 14px;
+    height: 14px;
+    margin-left: 0.5rem;
+    transition: transform 0.3s;
 }
 
 .impact-stats {
