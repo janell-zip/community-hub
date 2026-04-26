@@ -18,7 +18,7 @@
     </div>
 
     <div class="about-hero-image">
-        <img src="{{ asset('img/hero.jpg') }}" alt="SPUP CDC Foundation team" />
+        <img src="{{ asset('img/about/about.webp') }}" alt="SPUP CDC Foundation team" />
     </div>
 
 </section>
