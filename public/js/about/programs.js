@@ -4,33 +4,61 @@
     const navLinks = document.querySelectorAll('.program-nav a');
     const panels   = document.querySelectorAll('.tab-panel');
 
+    function getNavHeight() {
+        return document.querySelector('nav')?.offsetHeight || 0;
+    }
+
+    function scrollToSection(element) {
+        const top = element.getBoundingClientRect().top + window.scrollY - getNavHeight();
+        window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    function activateTab(tabName) {
+        if (!tabName) return;
+        const targetTab   = document.querySelector(`.program-nav a[data-tab="${tabName}"]`);
+        const targetPanel = document.querySelector(`.tab-panel[data-panel="${tabName}"]`);
+        if (!targetTab || !targetPanel) return;
+
+        navLinks.forEach(l => l.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+
+        targetTab.classList.add('active');
+        targetPanel.classList.add('active');
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const tab = link.getAttribute('data-tab');
-
-            navLinks.forEach(l => l.classList.remove('active'));
-            panels.forEach(p => p.classList.remove('active'));
-
-            link.classList.add('active');
-            document.querySelector(`.tab-panel[data-panel="${tab}"]`)?.classList.add('active');
+            activateTab(link.getAttribute('data-tab'));
         });
     });
 
-    const hash = window.location.hash;
-    if (hash) {
-        const target = document.querySelector(hash);
-        if (target) {
-            const panel = target.dataset.panel;
-            const matchingLink = document.querySelector(`.program-nav a[data-tab="${panel}"]`);
+    document.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash?.replace('#', '');
 
-            navLinks.forEach(l => l.classList.remove('active'));
-            panels.forEach(p => p.classList.remove('active'));
+        if (hash === 'programs') {
+            setTimeout(() => {
+                const section = document.getElementById('programs');
+                if (section) scrollToSection(section);
+            }, 500);
 
-            target.classList.add('active');
-            if (matchingLink) matchingLink.classList.add('active');
-
-            target.scrollIntoView({ behavior: 'smooth' });
+        } else if (hash) {
+            activateTab(hash);
+            setTimeout(() => {
+                const section = document.getElementById('programs');
+                if (section) scrollToSection(section);
+            }, 150);
         }
-    }
+    });
+
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash?.replace('#', '');
+        if (hash === 'programs') {
+            const section = document.getElementById('programs');
+            if (section) scrollToSection(section);
+        } else {
+            activateTab(hash);
+        }
+    });
+
 })();
