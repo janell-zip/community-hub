@@ -13,12 +13,18 @@
                 reaches partner communities and contributes meaningfully to national and global development priorities.
             </p>
             </p>
-            <a href="/about" class="wwa-btn">Learn Our Story</a>
+            <a href="/about" class="wwa-btn">Learn Our Story 
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+                </svg>
+            </a>
         </div>
 
         <div class="wwa-image-wrap">
             <div class="wwa-image-frame">
-                <img src="{{ asset('img/home/who-we-are.jpg') }}" alt="Community members">
+                <img src="{{ asset('img/home/who-we-are.webp') }}" alt="SPUPCDCFI Team">
             </div>
             <div class="wwa-image-accent"></div>
         </div>
