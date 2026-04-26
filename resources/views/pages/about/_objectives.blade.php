@@ -6,42 +6,59 @@
             <p class="obj-eyebrow">Our Commitments</p>
             <h2 class="obj-headline">What We Stand For</h2>
             <p class="obj-intro">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Anchored on the SPUP Vision-Mission,  the community extension program pursues a two-fold set of goals that foster 
+                transformative education and sustainable community development.
             </p>
         </div>
 
         <div class="obj-grid">
 
-            <div class="obj-item">
-                <span class="obj-num">01</span>
-                <p class="obj-text">Promote the integral human development of the poor and marginalized — especially the rural poor — through trainings, education, and formation programs.</p>
+            <div class="obj-column">
+                <div class="obj-pill">Goals for the School</div>
+
+                <div class="obj-item">
+                    <span class="obj-num">01</span>
+                    <p class="obj-text">Promote social awareness, solidarity, and responsible citizenship among 
+                        administrators, faculty, non-teaching staff, students, parents, and alumni by deepening their 
+                        understanding of the realities faced by poor, deprived, and underserved communities.</p>
+                </div>
+
+                <div class="obj-item">
+                    <span class="obj-num">02</span>
+                    <p class="obj-text">Provide structured and meaningful avenues for Paulinians to actively engage in 
+                        community immersion, service-learning, and extension initiatives that contribute to the holistic formation, 
+                        empowerment, and sustainable development of partner barangays.</p>
+                </div>
+
+                <div class="obj-item">
+                    <span class="obj-num">03</span>
+                    <p class="obj-text">Instill the values of committed service, compassion, and authentic concern among students 
+                        by nurturing a culture of volunteerism and servant leadership in response to the needs of marginalized communities.</p>
+                </div>
             </div>
 
-            <div class="obj-item">
-                <span class="obj-num">02</span>
-                <p class="obj-text">Provide opportunities for people in need to improve the quality of their lives through efficient and effective management of resources.</p>
-            </div>
+            <div class="obj-column">
+                <div class="obj-pill">Goals for the Partner Communities </div>
 
-            <div class="obj-item">
-                <span class="obj-num">03</span>
-                <p class="obj-text">Conduct livelihood training activities, non-formal education projects, and scholarship assistance for underserved communities.</p>
-            </div>
+                <div class="obj-item">
+                    <span class="obj-num">01</span>
+                    <p class="obj-text">Strengthen the capacities of community leaders and members by equipping them with essential values,
+                        knowledge, and skills necessary for participatory governance, local leadership, and self-managed development initiatives.</p>
+                </div>
 
-            <div class="obj-item">
-                <span class="obj-num">04</span>
-                <p class="obj-text">Provide and accept grants, contributions, donations, and other forms of financial or technical assistance for the foundation's programs and purposes.</p>
-            </div>
+                <div class="obj-item">
+                    <span class="obj-num">02</span>
+                    <p class="obj-text">Promote sustainable livelihood and income-generating opportunities that enhance household resilience, 
+                        augment family income, reduce poverty, and support inclusive local economic growth.</p>
+                </div>
 
-            <div class="obj-item">
-                <span class="obj-num">05</span>
-                <p class="obj-text">Provide scholarships and opportunities to poor farmers and their children, indigenous peoples, and survivors of calamities.</p>
+                <div class="obj-item">
+                    <span class="obj-num">03</span>
+                    <p class="obj-text">Build self-reliant, self-nourishing, and self-sustaining Small Christian Communities &lpar;SCCs&rpar; that embody shared responsibility, 
+                        faith-inspired action, social participation, and stewardship of resources.</p>
+                </div>
             </div>
-
-            <div class="obj-item">
-                <span class="obj-num">06</span>
-                <p class="obj-text">Do all things necessary for the accomplishment of these objectives and the advancement of community welfare.</p>
-            </div>
-
+        
         </div>
 
     </div>

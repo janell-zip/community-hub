@@ -24,7 +24,6 @@
     gap: 1.5rem;
 }
 
-/* Header */
 .obj-header {
     text-align: center;
     max-width: 600px;
@@ -75,32 +74,54 @@
     font-size: 0.88rem;
     font-weight: 400;
     line-height: 1.85;
-    color: #333;
+    color: #222;
 }
 
-/* Grid */
 .obj-grid {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto repeat(3, 1fr);
     gap: 0;
+}
+
+.obj-column {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    border-right: 1px solid rgba(26, 58, 42, 0.1);
+}
+
+.obj-column:last-child {
+    border-right: none;
+}
+
+.obj-pill {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark-green);
+    background: rgba(26, 58, 42, 0.08);
+    border-radius: 999px;
+    padding: 0.5rem 1.25rem;
+    align-self: start;
+    justify-self: start;
+    margin: 1rem 1.25rem 0.5rem;
+    width: fit-content;
 }
 
 .obj-item {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    padding: 1rem 1.25rem;
+    padding: 1.25rem;
     border-bottom: 1px solid rgba(26, 58, 42, 0.1);
-    border-right: 1px solid rgba(26, 58, 42, 0.1);
     transition: background 0.25s;
 }
 
-.obj-item:nth-child(even) {
-    border-right: none;
-}
-
-.obj-item:nth-last-child(-n+2) {
+.obj-item:last-child {
     border-bottom: none;
 }
 
@@ -126,8 +147,9 @@
     font-size: 0.88rem;
     font-weight: 400;
     line-height: 1.8;
-    color: #444;
+    color: #333;
     transition: color 0.25s;
+    text-align: justify;
 }
 
 @media (max-width: 1024px) {
@@ -153,21 +175,30 @@
         grid-template-columns: 1fr;
     }
 
-    .obj-item {
-        padding: 1.5rem 0.5rem;
+    .obj-column {
         border-right: none;
         border-bottom: 1px solid rgba(26, 58, 42, 0.1);
     }
 
-    .obj-item:last-child {
+    .obj-column:last-child {
         border-bottom: none;
     }
 
-    .obj-item:nth-last-child(-n+2) {
+    .obj-pill {
+        margin: 1rem 0.5rem 0.5rem;
+    }
+
+    .obj-item {
+        border-right: none;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .obj-item:nth-last-child(1),
+    .obj-item:nth-last-child(2) {
         border-bottom: 1px solid rgba(26, 58, 42, 0.1);
     }
 
-    .obj-item:nth-last-child(1) {
+    .obj-item:last-child {
         border-bottom: none;
     }
 }
