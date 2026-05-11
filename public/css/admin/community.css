@@ -7,7 +7,7 @@
     gap: 1.5rem;
 }
 
-/* ── Header ── */
+/* Header */
 .community-header {
     display: flex;
     align-items: flex-start;
@@ -29,7 +29,7 @@
     margin-top: 0.25rem;
 }
 
-/* ── Stats ── */
+/* Stats */
 .community-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -63,7 +63,7 @@
     color: var(--admin-text-muted);
 }
 
-/* ── Toolbar ── */
+/* Toolbar */
 .community-toolbar {
     display: flex;
     align-items: center;
@@ -92,6 +92,7 @@
 .community-filter-btns {
     display: flex;
     gap: 0.4rem;
+    flex-wrap: wrap;
 }
 
 .community-search-form {
@@ -142,11 +143,16 @@
     padding: 0.3rem 0.8rem;
     cursor: pointer;
     transition: background 0.15s, color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
 }
 
 .cbtn:hover {
     background: #eaebee;
     color: var(--admin-text);
+    text-decoration: none;
 }
 
 .cbtn.active {
@@ -154,6 +160,7 @@
     color: var(--admin-green);
     border-color: rgba(26, 58, 42, 0.2);
     font-weight: 600;
+    text-decoration: none;
 }
 
 .community-table-wrap {
@@ -446,8 +453,7 @@
     white-space: nowrap;
 }
 
-/* ── Edit Modal ── */
-
+/* Edit Modal */
 .cbmodal-overlay {
     position: fixed;
     inset: 0;
@@ -642,8 +648,7 @@
     to { transform: rotate(360deg); }
 }
 
-/* ── Add Barangay Button ── */
-
+/* Add Barangay */
 .cbtn-add {
     display: inline-flex;
     align-items: center;
@@ -671,8 +676,7 @@
     height: 13px;
 }
 
-/* ── Delete Modal ── */
-
+/* Delete Modal */
 .cbmodal--sm {
     max-width: 400px;
 }
@@ -730,7 +734,6 @@
 }
 
 /* ── Field extras ── */
-
 .cbfield-optional {
     font-family: 'Manrope', sans-serif;
     font-size: 0.65rem;
