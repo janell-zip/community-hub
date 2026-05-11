@@ -61,21 +61,23 @@
 
     // ── Category config ──
     const CATEGORY_COLORS = {
-        'health':          '#c0392b',
-        'education':       '#2980b9',
-        'infrastructure':  '#e67e22',
-        'livelihood':      '#27ae60',
-        'disaster-risk':   '#8e44ad',
-        'social-services': '#16a085',
+        'spiritual-values':  '#16a085',
+        'health':            '#c0392b',
+        'livelihood':        '#27ae60',
+        'education':         '#2980b9',
+        'digital-inclusion': '#e67e22',
+        'environment':       '#1a9e6e',
+        'disaster-risk':     '#8e44ad',
     };
 
     const CATEGORY_LABELS = {
-        'health':          'Health',
-        'education':       'Education',
-        'infrastructure':  'Infrastructure',
-        'livelihood':      'Livelihood',
-        'disaster-risk':   'Disaster Risk',
-        'social-services': 'Social Services',
+        'spiritual-values':  'Spiritual & Values Formation',
+        'health':            'Health & Well-Being',
+        'livelihood':        'Livelihood & Enterprise',
+        'education':         'Education & Culture',
+        'digital-inclusion': 'Digital Inclusion & Innovation',
+        'environment':       'Environmental Stewardship',
+        'disaster-risk':     'DRRM & Emergency Preparedness',
     };
 
     // ── Barangay polygons (point-in-polygon detection) ──

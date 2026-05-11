@@ -44,26 +44,29 @@
     </div>
 
     <div class="sidebar-section">
-        <p class="sidebar-section-label">Filter by Category</p>
+        <p class="sidebar-section-label">Filter by Program Component</p>
         <div class="filter-group" id="filter-program">
             <button class="filter-chip active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="spiritual-values">
+                <span class="chip-dot" style="background:#16a085"></span>Spiritual & Values Formation
+            </button>
             <button class="filter-chip" data-filter="health">
-                <span class="chip-dot" style="background:#c0392b"></span>Health
-            </button>
-            <button class="filter-chip" data-filter="education">
-                <span class="chip-dot" style="background:#2980b9"></span>Education
-            </button>
-            <button class="filter-chip" data-filter="infrastructure">
-                <span class="chip-dot" style="background:#e67e22"></span>Infrastructure
+                <span class="chip-dot" style="background:#c0392b"></span>Health & Well-Being
             </button>
             <button class="filter-chip" data-filter="livelihood">
-                <span class="chip-dot" style="background:#27ae60"></span>Livelihood
+                <span class="chip-dot" style="background:#27ae60"></span>Livelihood & Enterprise
+            </button>
+            <button class="filter-chip" data-filter="education">
+                <span class="chip-dot" style="background:#2980b9"></span>Education & Culture
+            </button>
+            <button class="filter-chip" data-filter="digital-inclusion">
+                <span class="chip-dot" style="background:#e67e22"></span>Digital Inclusion & Innovation
+            </button>
+            <button class="filter-chip" data-filter="environment">
+                <span class="chip-dot" style="background:#1a9e6e"></span>Environmental Stewardship
             </button>
             <button class="filter-chip" data-filter="disaster-risk">
-                <span class="chip-dot" style="background:#8e44ad"></span>Disaster Risk
-            </button>
-            <button class="filter-chip" data-filter="social-services">
-                <span class="chip-dot" style="background:#16a085"></span>Social Services
+                <span class="chip-dot" style="background:#8e44ad"></span>DRRM & Emergency Preparedness
             </button>
         </div>
     </div>
@@ -108,15 +111,16 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label">Category</label>
+                <label class="form-label">Program Component</label>
                 <select class="form-input" id="pin-program">
-                    <option value="">Select category</option>
-                    <option value="health">Health</option>
-                    <option value="education">Education</option>
-                    <option value="infrastructure">Infrastructure</option>
-                    <option value="livelihood">Livelihood</option>
-                    <option value="disaster-risk">Disaster Risk</option>
-                    <option value="social-services">Social Services</option>
+                    <option value="">Select component</option>
+                    <option value="spiritual-values">Spiritual & Values Formation</option>
+                    <option value="health">Health & Well-Being</option>
+                    <option value="livelihood">Livelihood & Enterprise</option>
+                    <option value="education">Education & Culture</option>
+                    <option value="digital-inclusion">Digital Inclusion & Innovation</option>
+                    <option value="environment">Environmental Stewardship</option>
+                    <option value="disaster-risk">DRRM & Emergency Preparedness</option>
                 </select>
             </div>
             <div class="form-group">
