@@ -1,12 +1,16 @@
 (function () {
     'use strict';
 
-    // ── Data ────────────────────────────────────────────────────
+    // Data
     let programs   = window.PROGRAMS_DATA   || [];
     const cats     = window.CATEGORIES_DATA || {};
     const statuses = window.STATUSES_DATA   || {};
     const storeUrl = window.PROGRAMS_STORE_URL;
     const csrf     = window.CSRF_TOKEN;
+    const allSdgs      = window.SDGS_DATA       || [];
+    const activityTypes = window.ACTIVITY_TYPES_DATA || {};
+    const sdgMap       = window.SDG_MAP_DATA    || {};
+    const beneficiaries = window.BENEFICIARIES_DATA || {};
 
     let currentYear  = new Date().getFullYear();
     let currentMonth = new Date().getMonth();
@@ -18,7 +22,7 @@
     const isSuperAdmin  = window.IS_SUPER_ADMIN || false;
     let pendingRequests  = [];
 
-    // ── Toast ────────────────────────────────────────────────────
+    // Toast
     let toastTimer = null;
 
     function showToast(message, type = 'success') {
@@ -82,7 +86,7 @@
         });
     }
 
-    // ── Filtering ────────────────────────────────────────────────
+    // Filtering 
     function filteredPrograms() {
         return programs.filter(p => {
             if (activeFilters.category && p.category !== activeFilters.category) return false;
@@ -91,7 +95,7 @@
         });
     }
 
-    // ── Calendar ─────────────────────────────────────────────────
+    // Calendar
     const MONTHS = ['January','February','March','April','May','June',
                     'July','August','September','October','November','December'];
 
@@ -255,6 +259,7 @@
                     <div class="pg-day-popover-item-meta">
                         <span class="pg-day-popover-item-dot" style="background:${color}"></span>
                         <span class="pg-day-popover-item-time">${timeStr}</span>
+                        ${p.activity_type ? `<span class="pg-day-popover-item-activity">${activityTypes[p.category]?.[p.activity_type] || p.activity_type}</span>` : ''}
                         <span class="pg-day-popover-item-status"
                             style="background:${scolor}22; color:${scolor}">
                             ${status.label || p.status}
@@ -353,7 +358,7 @@
         }
     });
 
-    // ── Form Modal (Create / Edit) ───────────────────────────────
+    // Form Modal (Create / Edit)
     const form       = document.getElementById('program-form');
     const errorBox   = document.getElementById('pgmodal-error');
     const saveBtn    = document.getElementById('pgmodal-save');
@@ -371,6 +376,11 @@
         pinLocInput.value = '';
         pinHint.hidden    = true;
         pinDropdown.hidden = true;
+        document.getElementById('pg-activity-type').value = '';
+        document.getElementById('pg-activity-type-wrap').style.display = 'none';
+        renderSdgPicker([]);
+        document.getElementById('pg-reach').value = '';
+        renderBeneficiaryPicker([]);
 
         const now    = new Date();
         const pad    = n => String(n).padStart(2, '0');
@@ -438,6 +448,13 @@
         pinDropdown.hidden = true;
         document.getElementById('pg-status').value   = prog.status;
         document.getElementById('pg-category').value = prog.category;
+        populateActivityTypes(prog.category);
+        document.getElementById('pg-activity-type').value = prog.activity_type || '';
+
+        renderSdgPicker(prog.sdgs || []);
+
+        document.getElementById('pg-reach').value = prog.reach || '';
+        renderBeneficiaryPicker(prog.target_beneficiaries || []);
 
         const toLocal = iso => {
             const d = new Date(iso);
@@ -590,7 +607,134 @@
         pinSearch.value = '';
         clearPinSelection();
         pinDropdown.hidden = true;
+        populateActivityTypes(this.value);
+        document.getElementById('pg-activity-type').value = '';
+        autoSuggestSdgs(this.value);
     });
+
+    // Activity Type Dropdown
+    function populateActivityTypes(categorySlug) {
+        const select  = document.getElementById('pg-activity-type');
+        const wrapper = document.getElementById('pg-activity-type-wrap');
+        const types   = activityTypes[categorySlug] || {};
+        const entries = Object.entries(types);
+
+        select.innerHTML = '<option value="" disabled selected>Select activity type</option>';
+        entries.forEach(([slug, label]) => {
+            const opt = document.createElement('option');
+            opt.value = slug;
+            opt.textContent = label;
+            select.appendChild(opt);
+        });
+
+        wrapper.style.display = entries.length > 0 ? 'flex' : 'none';
+    }
+
+    // SDG Picker
+    function renderSdgPicker(selectedIds) {
+        const container = document.getElementById('pg-sdg-picker');
+        if (!container) return;
+
+        container.innerHTML = allSdgs.map(sdg => {
+            const isSelected = selectedIds.includes(sdg.id);
+            return `
+                <button type="button"
+                    class="sdg-chip ${isSelected ? 'sdg-chip--selected' : ''}"
+                    data-sdg-id="${sdg.id}"
+                    style="--sdg-color: ${sdg.color}">
+                    <span class="sdg-chip-num">${sdg.number}</span>
+                    <span class="sdg-chip-label">${sdg.title}</span>
+                </button>`;
+        }).join('');
+
+        container.querySelectorAll('.sdg-chip').forEach(chip => {
+            chip.addEventListener('click', function () {
+                this.classList.toggle('sdg-chip--selected');
+                syncSdgHiddenInputs();
+            });
+        });
+
+        syncSdgHiddenInputs();
+    }
+
+    function syncSdgHiddenInputs() {
+        const container  = document.getElementById('pg-sdg-picker');
+        const hiddenWrap = document.getElementById('pg-sdg-hidden');
+        if (!container || !hiddenWrap) return;
+
+        hiddenWrap.innerHTML = '';
+        container.querySelectorAll('.sdg-chip--selected').forEach(chip => {
+            const input = document.createElement('input');
+            input.type  = 'hidden';
+            input.name  = 'sdg_ids[]';
+            input.value = chip.dataset.sdgId;
+            hiddenWrap.appendChild(input);
+        });
+    }
+
+    function renderBeneficiaryPicker(selectedValues) {
+        const dropdown = document.getElementById('pg-beneficiary-dropdown');
+        if (!dropdown) return;
+        dropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.checked = selectedValues.includes(cb.value);
+        });
+        updateBeneficiaryLabel();
+    }
+
+    function updateBeneficiaryLabel() {
+        const dropdown = document.getElementById('pg-beneficiary-dropdown');
+        const label    = document.getElementById('pg-beneficiary-label');
+        if (!dropdown || !label) return;
+        const checked = [...dropdown.querySelectorAll('input:checked')].map(cb => {
+            return beneficiaries[cb.value] || cb.value;
+        });
+        label.textContent = checked.length > 0
+            ? checked.length === 1 ? checked[0] : `${checked.length} selected`
+            : 'Select beneficiaries...';
+    }
+
+    function syncBeneficiaryHiddenInputs() {
+        const container  = document.getElementById('pg-beneficiary-picker');
+        const hiddenWrap = document.getElementById('pg-beneficiary-hidden');
+        if (!container || !hiddenWrap) return;
+
+        hiddenWrap.innerHTML = '';
+        container.querySelectorAll('.beneficiary-chip--selected').forEach(chip => {
+            const input = document.createElement('input');
+            input.type  = 'hidden';
+            input.name  = 'target_beneficiaries[]';
+            input.value = chip.dataset.value;
+            hiddenWrap.appendChild(input);
+        });
+    }
+
+    document.getElementById('pg-beneficiary-trigger')?.addEventListener('click', function () {
+        const dropdown = document.getElementById('pg-beneficiary-dropdown');
+        if (!dropdown) return;
+        dropdown.hidden = !dropdown.hidden;
+        this.classList.toggle('is-open', !dropdown.hidden);
+    });
+
+    document.getElementById('pg-beneficiary-dropdown')?.addEventListener('change', function () {
+        updateBeneficiaryLabel();
+    });
+
+    document.addEventListener('click', function (e) {
+        const wrap = document.getElementById('pg-beneficiary-wrap');
+        if (wrap && !wrap.contains(e.target)) {
+            const dropdown = document.getElementById('pg-beneficiary-dropdown');
+            if (dropdown) dropdown.hidden = true;
+            document.getElementById('pg-beneficiary-trigger')?.classList.remove('is-open');
+        }
+    });
+
+    function autoSuggestSdgs(categorySlug) {
+        const suggested = sdgMap[categorySlug] || [];
+        const sdgIds    = allSdgs
+            .filter(s => suggested.includes(s.number))
+            .map(s => s.id);
+        renderSdgPicker(sdgIds);
+    }
 
     pinSearch.addEventListener('blur', function () {
         setTimeout(() => { pinDropdown.hidden = true; }, 150);
@@ -661,6 +805,8 @@
                         title: 'pg-title', description: 'pg-description',
                         location: 'pg-location', category: 'pg-category',
                         status: 'pg-status', start_at: 'pg-start', end_at: 'pg-end',
+                        activity_type: 'pg-activity-type',
+                        reach: 'pg-reach',
                     };
                     const messages = [];
                     for (const [field, errs] of Object.entries(data.errors)) {
@@ -699,7 +845,7 @@
         }
     });
 
-    // ── Detail Modal ───
+    // Detail Modal
     function openDetailModal(prog) {
         detailTarget = prog;
 
@@ -736,6 +882,44 @@
         const descEl  = document.getElementById('pgdetail-description');
         descEl.textContent = prog.description || '';
         descRow.hidden = !prog.description;
+
+        const actTypeRow = document.getElementById('pgdetail-activity-row');
+        const actTypeEl  = document.getElementById('pgdetail-activity-type');
+        if (actTypeRow && actTypeEl) {
+            const typeLabel = activityTypes[prog.category]?.[prog.activity_type] || prog.activity_type || '';
+            actTypeEl.textContent = typeLabel;
+            actTypeRow.hidden = !typeLabel;
+        }
+
+        const sdgRow = document.getElementById('pgdetail-sdg-row');
+        const sdgEl  = document.getElementById('pgdetail-sdgs');
+        if (sdgRow && sdgEl) {
+            const progSdgs = allSdgs.filter(s => (prog.sdgs || []).includes(s.id));
+            sdgEl.innerHTML = progSdgs.map(s => `
+                <span class="sdg-detail-chip" style="--sdg-color:${s.color}">
+                    <span class="sdg-chip-num">${s.number}</span>
+                    <span class="sdg-chip-label">${s.title}</span>
+                </span>`).join('');
+            sdgRow.hidden = progSdgs.length === 0;
+        }
+
+        const reachRow = document.getElementById('pgdetail-reach-row');
+        const reachEl  = document.getElementById('pgdetail-reach');
+        if (reachRow && reachEl) {
+            reachEl.textContent = prog.reach ? `${prog.reach.toLocaleString()} beneficiaries reached` : '';
+            reachRow.hidden = !prog.reach;
+        }
+
+        const benRow = document.getElementById('pgdetail-beneficiaries-row');
+        const benEl  = document.getElementById('pgdetail-beneficiaries');
+        if (benRow && benEl) {
+            const selected = prog.target_beneficiaries || [];
+            benEl.innerHTML = selected.map(slug => `
+                <span class="beneficiary-detail-chip">
+                    ${beneficiaries[slug] || slug}
+                </span>`).join('');
+            benRow.hidden = selected.length === 0;
+        }
 
         const existingBanner = document.getElementById('pgdetail-request-banner');
         if (existingBanner) existingBanner.remove();
@@ -880,7 +1064,7 @@
         if (detailTarget) openDeleteModal(detailTarget);
     });
 
-    // ── Delete Modal ─────────────────────────────────────────────
+    // Delete Modal
     const delConfirm    = document.getElementById('pgdelmodal-confirm');
     const delBtnText    = delConfirm.querySelector('.pgmodal-btn-text');
     const delBtnSpinner = delConfirm.querySelector('.pgmodal-btn-spinner');
