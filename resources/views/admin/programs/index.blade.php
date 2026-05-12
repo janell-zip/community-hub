@@ -65,7 +65,7 @@
 
             {{-- Filters --}}
             <div class="pgsidebar-section">
-                <span class="pgsidebar-section-label">Category</span>
+                <span class="pgsidebar-section-label">Program Component</span>
                 <div class="pg-filter-btns pg-filter-btns--col" id="category-filters">
                     <button class="pgfbtn active" data-filter="category" data-value="">All</button>
                     @foreach ($categories as $slug => $cat)
@@ -157,14 +157,15 @@
                 </div>
                 <div class="pgfield-row">
                     <div class="pgfield">
-                        <label class="pgfield-label" for="pg-category">Category</label>
+                        <label class="pgfield-label" for="pg-category">Program Component</label>
                         <select class="pgfield-input pgfield-select" id="pg-category" name="category" required>
-                            <option value="" disabled selected>Select category</option>
+                            <option value="" disabled selected>Select program component</option>
                             @foreach ($categories as $slug => $cat)
                             <option value="{{ $slug }}">{{ $cat['label'] }}</option>
                             @endforeach
                         </select>
                     </div>
+
                     @if(auth()->user()->isSuperAdmin())
                     <div class="pgfield">
                         <label class="pgfield-label" for="pg-status">Status</label>
@@ -178,6 +179,39 @@
                     <input type="hidden" id="pg-status" name="status" value="proposed">
                     @endif
                 </div>
+
+                <div class="pgfield" id="pg-activity-type-wrap" style="display:none;">
+                    <label class="pgfield-label" for="pg-activity-type">Activity Type</label>
+                    <select class="pgfield-input pgfield-select" id="pg-activity-type" name="activity_type">
+                        <option value="" disabled selected>Select activity type</option>
+                    </select>
+                </div>
+
+                <div class="pgfield-row">
+                    <div class="pgfield">
+                        <label class="pgfield-label" for="pg-reach">Reach</label>
+                        <input class="pgfield-input" type="number" id="pg-reach" name="reach" min="0" placeholder="e.g. 150" required>
+                    </div>
+                    <div class="pgfield">
+                        <label class="pgfield-label">Target Beneficiaries</label>
+                        <div class="pg-beneficiary-wrap" id="pg-beneficiary-wrap">
+                            <button type="button" class="pg-beneficiary-trigger" id="pg-beneficiary-trigger">
+                                <span id="pg-beneficiary-label">Select beneficiaries...</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </button>
+                            <div class="pg-beneficiary-dropdown" id="pg-beneficiary-dropdown" hidden>
+                                @foreach ($beneficiaries as $slug => $label)
+                                <label class="pg-beneficiary-option">
+                                    <input type="checkbox" name="target_beneficiaries[]" value="{{ $slug }}">
+                                    <span>{{ $label }}</span>
+                                </label>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="pgfield">
                     <label class="pgfield-label" for="pg-pin">Location <span class="pgfield-optional">optional</span></label>
                     <div class="pgpin-wrap">
@@ -187,6 +221,14 @@
                         <div class="pgpin-dropdown" id="pg-pin-dropdown" hidden></div>
                     </div>
                     <span class="pgfield-hint" id="pg-pin-hint" hidden></span>
+                    <div class="pgfield">
+                        <label class="pgfield-label">
+                            Sustainable Development Goals
+                            <span class="pgfield-optional">auto-suggested · editable</span>
+                        </label>
+                        <div class="pg-sdg-picker" id="pg-sdg-picker"></div>
+                        <div id="pg-sdg-hidden"></div>
+                    </div>
                 </div>
                 <div class="pgfield-row">
                     <div class="pgfield">
@@ -266,6 +308,39 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
                     <span id="pgdetail-description"></span>
                 </div>
+                <div class="pgdetail-field" id="pgdetail-activity-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                        <rect x="9" y="3" width="6" height="4" rx="1" ry="1"/>
+                        <line x1="9" y1="12" x2="15" y2="12"/>
+                        <line x1="9" y1="16" x2="13" y2="16"/>
+                    </svg>
+                    <span id="pgdetail-activity-type"></span>
+                </div>
+                <div class="pgdetail-field" id="pgdetail-reach-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                    <span id="pgdetail-reach"></span>
+                </div>
+                <div class="pgdetail-field" id="pgdetail-beneficiaries-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                    <div id="pgdetail-beneficiaries" style="display:flex; flex-wrap:wrap; gap:0.35rem;"></div>
+                </div>
+                <div class="pgdetail-field pgdetail-sdg-row" id="pgdetail-sdg-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                    </svg>
+                    <div id="pgdetail-sdgs" style="display:flex; flex-wrap:wrap; gap:0.35rem;"></div>
+                </div>
             </div>
         </div>
         <div class="pgmodal-footer" id="pgdetail-footer">
@@ -291,6 +366,10 @@
     window.CATEGORIES_DATA = @json($categories);
     window.STATUSES_DATA   = @json($statuses);
     window.PINS_DATA = @json($pins);
+    window.SDGS_DATA = @json($sdgs);
+    window.ACTIVITY_TYPES_DATA = @json($activityTypes);
+    window.SDG_MAP_DATA        = @json($sdgMap);
+    window.BENEFICIARIES_DATA   = @json($beneficiaries);
     window.PROGRAMS_STORE_URL          = "{{ route('admin.programs.store') }}";
     window.PROGRAMS_UPDATE_URL         = "/admin/programs/";
     window.PROGRAM_REQUESTS_URL        = "{{ route('admin.program-requests.store') }}";
