@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    // ── Data ────────────────────────────────────────────────────
+    // Data
     let programs   = window.PROGRAMS_DATA || [];
     const cats     = window.CATEGORIES_DATA || {};
     const statuses = window.STATUSES_DATA || {};
@@ -10,7 +10,7 @@
     let currentMonth = new Date().getMonth();
     let detailTarget = null;
 
-    // ── Calendar ─────────────────────────────────────────────────
+    // Calendar
     const MONTHS = ['January','February','March','April','May','June',
                     'July','August','September','October','November','December'];
 
@@ -136,7 +136,7 @@
 
     renderCalendar();
 
-    // ── Day Popover ──────────────────────────────────────────────
+    // Day Popover
     const dayPopover     = document.getElementById('day-popover');
     const dayPopoverDate = document.getElementById('day-popover-date');
     const dayPopoverList = document.getElementById('day-popover-list');
@@ -222,7 +222,7 @@
         if (e.key === 'Escape') closeDayPopover();
     });
 
-    // ── Modal helpers ────────────────────────────────────────────
+    // Modal helpers
     function openOverlay(id) {
         const el = document.getElementById(id);
         el.setAttribute('aria-hidden', 'false');
@@ -249,7 +249,7 @@
         }
     });
 
-    // ── Detail Modal ─────────────────────────────────────────────
+    // Detail Modal 
     function openDetailModal(prog) {
         detailTarget = prog;
 
@@ -286,6 +286,35 @@
         const descEl  = document.getElementById('pub-detail-description');
         descEl.textContent = prog.description || '';
         descRow.hidden = !prog.description;
+
+        // Activity Type
+        const actTypeRow = document.getElementById('pub-detail-activity-row');
+        const actTypeEl  = document.getElementById('pub-detail-activity-type');
+        if (actTypeRow && actTypeEl) {
+            const actTypes = window.ACTIVITY_TYPES_DATA || {};
+            const label = actTypes[prog.category]?.[prog.activity_type] || prog.activity_type || '';
+            actTypeEl.textContent = label;
+            actTypeRow.hidden = !label;
+        }
+
+        // Reach
+        const reachRow = document.getElementById('pub-detail-reach-row');
+        const reachEl  = document.getElementById('pub-detail-reach');
+        if (reachRow && reachEl) {
+            reachEl.textContent = prog.reach ? `${prog.reach.toLocaleString()} beneficiaries reached` : '';
+            reachRow.hidden = !prog.reach;
+        }
+
+        // Target Beneficiaries
+        const benRow = document.getElementById('pub-detail-beneficiaries-row');
+        const benEl  = document.getElementById('pub-detail-beneficiaries');
+        if (benRow && benEl) {
+            const allBens = window.BENEFICIARIES_DATA || {};
+            const selected = prog.target_beneficiaries || [];
+            benEl.innerHTML = selected.map(slug => `
+                <span class="pub-beneficiary-chip">${allBens[slug] || slug}</span>`).join('');
+            benRow.hidden = selected.length === 0;
+        }
 
         openOverlay('program-detail-modal');
     }
