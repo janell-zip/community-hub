@@ -246,6 +246,14 @@ class ProgramController extends Controller
                     'description' => $p->description,
                     'location'    => $p->location,
                     'category'    => $p->category,
+                    'activity_type' => $p->activity_type,
+                    'reach'       => $p->reach,
+                    'target_beneficiaries' => $p->target_beneficiaries,
+                    'sdgs'                 => $p->sdgs->map(fn($s) => [  
+                        'number' => $s->number,
+                        'title'  => $s->title,
+                        'color'  => $s->color,
+                    ]),
                     'status'      => $p->status,
                     'start_at'    => $p->start_at->toIso8601String(),
                     'end_at'      => $p->end_at->toIso8601String(),
@@ -255,6 +263,8 @@ class ProgramController extends Controller
         return view('pages.programs.index', [
             'programs'   => $programs,
             'categories' => Program::$categories,
+            'activityTypes' => Program::$activityTypes,
+            'beneficiaries' => Program::$beneficiaries,
             'statuses'   => array_filter(
                 Program::$statuses,
                 fn($key) => in_array($key, ['approved', 'ongoing', 'completed']),
