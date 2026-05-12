@@ -71,6 +71,31 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
                     <span id="pub-detail-description"></span>
                 </div>
+                <div class="pub-detail-field" id="pub-detail-activity-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                        <rect x="9" y="3" width="6" height="4" rx="1" ry="1"/>
+                        <line x1="9" y1="12" x2="15" y2="12"/>
+                        <line x1="9" y1="16" x2="13" y2="16"/>
+                    </svg>
+                    <span id="pub-detail-activity-type"></span>
+                </div>
+                <div class="pub-detail-field" id="pub-detail-reach-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                    <span id="pub-detail-reach"></span>
+                </div>
+                <div class="pub-detail-field" id="pub-detail-beneficiaries-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                    <div id="pub-detail-beneficiaries" style="display:flex; flex-wrap:wrap; gap:0.35rem;"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -82,6 +107,8 @@
 <script>
     window.PROGRAMS_DATA   = @json($programs);
     window.CATEGORIES_DATA = @json($categories);
+    window.ACTIVITY_TYPES_DATA = @json($activityTypes);
+    window.BENEFICIARIES_DATA  = @json($beneficiaries);
     window.STATUSES_DATA   = @json($statuses);
 </script>
 <script src="{{ asset('js/public-programs.js') }}" defer></script>
