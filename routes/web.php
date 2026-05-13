@@ -1,9 +1,8 @@
 <?php
-
-/*use App\Http\Controllers\AboutController;*/
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CommunityController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\ProgramRequestController;
 use App\Http\Controllers\Admin\SettingsController;
@@ -40,8 +39,10 @@ Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.log
 
 // Protected admin routes
 Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::get('/admin', fn() => redirect()->route('admin.dashboard'));
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    
     Route::get('/map',     fn() => view('admin.map.index'))->name('admin.map');
-    Route::get('/reports', fn() => view('admin.map.index'))->name('admin.reports');
 
     Route::get('/community', [CommunityController::class, 'index'])->name('admin.community');
     Route::get('community/check', [CommunityController::class, 'check'])->name('admin.community.check');
