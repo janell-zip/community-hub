@@ -1,0 +1,285 @@
+.dash-page {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dash-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.dash-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--admin-green);
+    margin: 0;
+}
+
+.dash-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.78rem;
+    color: var(--admin-text-muted);
+    margin-top: 0.25rem;
+}
+
+/* ── Stat Cards ── */
+
+.dash-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.dash-stat-card {
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.dash-stat-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--admin-text-muted);
+}
+
+.dash-stat-value {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--admin-green);
+    line-height: 1;
+}
+
+.dash-stat-sub {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--admin-text-muted);
+}
+
+/* ── Chart Row Layouts ── */
+
+.dash-charts-row {
+    display: grid;
+    gap: 1rem;
+}
+
+/* 40/60 — donut left, wide right */
+.dash-charts-row--4060 {
+    grid-template-columns: 2fr 3fr;
+}
+
+/* 60/40 — wide left, narrower right */
+.dash-charts-row--6040 {
+    grid-template-columns: 3fr 2fr;
+}
+
+/* 35/65 — narrow left, wide right */
+.dash-charts-row--3565 {
+    grid-template-columns: 2fr 3.5fr;
+}
+
+/* ── Cards ── */
+
+.dash-card {
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dash-card-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--admin-green);
+    margin: 0;
+}
+
+.dash-card-sub {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.72rem;
+    color: var(--admin-text-muted);
+    margin: -0.5rem 0 0;
+}
+
+/* ── Chart Wraps ── */
+
+.dash-chart-wrap {
+    position: relative;
+    height: 300px;
+}
+
+.dash-chart-wrap--donut {
+    height: 240px;
+}
+
+.dash-chart-wrap--polar {
+    height: 280px;
+}
+
+.dash-chart-wrap--tall {
+    height: 420px;
+}
+
+/* ── Donut Layout ── */
+
+.dash-donut-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.dash-donut-wrap .dash-chart-wrap--donut {
+    flex-shrink: 0;
+    width: 240px;
+    height: 240px;
+}
+
+.dash-donut-wrap .dash-legend {
+    flex: 1;
+}
+
+/* ── Legend ── */
+
+.dash-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.dash-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.72rem;
+}
+
+.dash-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.dash-legend-label {
+    flex: 1;
+    color: var(--admin-text);
+    font-weight: 500;
+}
+
+.dash-legend-count {
+    font-weight: 700;
+    color: var(--admin-green);
+}
+
+/* ── Tables ── */
+
+.dash-tables-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.dash-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.78rem;
+}
+
+.dash-table th {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--admin-text-muted);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+    text-align: left;
+}
+
+.dash-table td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+    color: var(--admin-text);
+    vertical-align: middle;
+}
+
+.dash-table tr:last-child td {
+    border-bottom: none;
+}
+
+.dash-table tr:hover td {
+    background: #f8f9fb;
+}
+
+.dash-table-empty {
+    text-align: center;
+    color: var(--admin-text-muted);
+    padding: 1.5rem !important;
+}
+
+.dash-cat-pill,
+.dash-status-pill {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1280px) {
+    .dash-stat-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .dash-charts-row--4060,
+    .dash-charts-row--6040,
+    .dash-charts-row--3565 {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-tables-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dash-page {
+        padding: 1.25rem;
+    }
+
+    .dash-stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .dash-stat-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
