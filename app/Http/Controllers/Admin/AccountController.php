@@ -80,6 +80,7 @@ class AccountController extends Controller
     public function toggle(Request $request, User $user)
     {
         // Prevent deactivating your own account or other super admins
+        // Only super admins can toggle accounts
         if ($user->id === auth()->id()) {
             return response()->json(['message' => 'You cannot deactivate your own account.'], 403);
         }

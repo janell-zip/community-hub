@@ -97,7 +97,6 @@ class BudgetController extends Controller
             'updated_by'       => auth()->id(),
         ]);
 
-        // Full replace of items
         $budget->items()->delete();
 
         foreach ($validated['items'] as $index => $item) {
