@@ -23,7 +23,6 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        // Might need to remove 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return response()->json(['success' => true, 'redirect' => route('admin.dashboard')]);
