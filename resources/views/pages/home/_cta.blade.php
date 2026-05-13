@@ -44,7 +44,13 @@
         </div>
 
         <div class="cta-footer">
-            <a href="https://www.facebook.com/p/SPUP-Community-Development-Center-Foundation-Inc-100069385013106/" class="cta-btn-primary" target="_blank">Take Action Now</a>
+            <a href="https://www.facebook.com/p/SPUP-Community-Development-Center-Foundation-Inc-100069385013106/" class="cta-btn-primary" target="_blank">Take Action Now
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+                </svg>
+            </a>
         </div>
 
     </div>
