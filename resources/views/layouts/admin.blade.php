@@ -18,7 +18,7 @@
 </head>
 <body class="admin-body">
     <nav class="admin-nav" id="admin-nav">
-        <a class="admin-nav-brand" href="{{ route('admin.map') }}">
+        <a class="admin-nav-brand" href="{{ route('admin.dashboard') }}">
             <img src="{{ asset('img/spup_logo.png') }}" alt="SPUP CDC" class="admin-nav-logo">
             <div class="admin-nav-brand-text">
                 <span class="admin-nav-brand-name">SPUP&dash;CDCFI</span>
@@ -30,6 +30,15 @@
 
         <!-- Nav links -->
         <ul class="admin-nav-links">
+            <li>
+                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
             <li>
                 <a href="{{ route('admin.map') }}" class="{{ request()->routeIs('admin.map') ? 'active' : '' }}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
