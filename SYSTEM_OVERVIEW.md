@@ -1,5 +1,5 @@
 # CDC Platform — System Overview
-**Version 1.0 · Community Development Center · April 2026**
+**Version 1.1 · Community Development Center · May 2026**
 
 ---
 
@@ -11,15 +11,70 @@ On the other, it is a **full* internal management system**. It brings together p
 
 Together, the two sides replace scattered spreadsheets and manual coordination with something more intentional: a platform that communicates the CDC's impact outward while keeping operations organized internally.
 
-Version 1.0 establishes the core foundation: the data models, user roles, public pages, and key workflows that the CDC will build on. It is designed to be practical and immediately useful, while leaving room to grow as needs evolve.
+Version 1.1 builds on the core foundation established in v1.0. It introduces a fully operational admin dashboard, a restructured program component system, SDG tracker, activity types, beneficiary targeting, reach metrics, and significant content and layout updates to the promotional website. 
 
 | | |
 |---|---|
 | **Framework** | Laravel |
 | **Language** | PHP |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 
 ---
+
+## What's New in Version 1.1
+
+**Admin Dashboard** 
+A new dashboard landing page replaces the map as the default admin entry point. It provides a centralized overview of the entire system with the following: 
+- **Stat cards** - includes total programs, active programs, total reach, total pins, and barangay coverage at a glance
+- **Programs by Status** - donut chart with a side legend
+- **Programs Added (Last 6 Months)** - line chart tracking program creation momentum
+- **Programs by Component & Status** - stacked horizontal bar chart showing each component broken down by status
+- **Component Overview** - radar chart normalizing reach and program count across all 7 components
+- **Target Beneficiaries Distribution** - polar area cart for visual breakdown for who is being served
+- **SDG Coverage** - horizontal bar chart showing how many programs are linked to each of the 17 SDGs 
+- **Programs by Activity Type** - horizontal bar chart showing activity distribution across all program types
+- **Upcoming Programs** and **Recently Added** tables for quick reference
+
+**Restructured Program Components**
+The six original program categories have been replaced with seven program components aligned to CDC's actual work:
+- Spiritual & Values Formation
+- Health & Well-Being
+- Livelihood & Enterprise
+- Education & Culture
+- Digital Inclusion & Innovation
+- Environmental Stewardship
+- DRRM & Emergency Preparedness
+
+**Activity Types**
+Each program component now has a defined set of activity types. When a component is selected in the program form, the activity type dropdown auto-populates with relevant options. Examples include Medical/Dental Missions under Health, Computer Literacy under Digital Inclusion, Tree Planting under Environmental Stewardship, and Relief Operations under DRRM. 
+
+**Reach and Target Beneficiaries**
+Two new required fields have been added to programs: 
+- **Reach** - a numeric count of how many individuals the program is expected to reach 
+- **Target Beneficiaries** - a multi-select dropdown with the following options: Barangay Officials/Leaders, Women, Children, Person with Disability, Elderly, and Other Vulnerable Sectors. 
+
+Both fields are visible in the program detail modal on the admin side and on the public programs calendar. 
+
+**SDG Integration** 
+Programs can now be linked to one or more of the 17 UN Sustainable Development Goals. SDGs are auto-suggested based on the selected program component when creating or editing a program, but can be manually adjusted. SDG data is stored in a dedicated sdgs table and linked via a program_sdg pivot table. SDGs are displayed as numbered colored chips in both the admin and public detail views. 
+
+**Other Updates** 
+The map's and community page's category filter have also been updated to reflect the 7 program components with correct color coding. 
+
+**Public Website Updates** 
+Significant content and layout updates were made to the public-facing website, which include but is not limited to: 
+- **Navigation** - updated navbar title and subtitle
+- **Home page** - updated Who We Are section with real content; refined What We Do section with new images; updated impact statistics; added hero image with adjusted object-position
+- **Partners section** - added organization logos with an infinite scroll animation
+- **About page** - float-based text wrap layout for the about hero section; updated with real program content, images, and links
+- **Public programs calendar** - detail modal now shows activity type, reach, and target beneficiaries pulled from the admin system
+- **Footer** - updated contact details, layout, and minor CSS refinements
+
+Content for all pages has also been updated to reflect the information provided by the CDC. 
+
+**Login** 
+- Removed unused remember me paramater from the login flow
+- Login now redirects to the dashboard instead of the map
 
 ## Who Uses It
 
@@ -41,9 +96,9 @@ The platform is organized into two layers: a public-facing website for community
 
 The public side of the platform is the CDC's face to the community. It is designed to be accessible to anyone — no account, no friction.
 
-- **Home page** — introduces the CDC and its mission.
+- **Home page** — introduces the CDC and its mission with real content, images, and partner logos. 
 - **About page** — provides background on the organization, its goals, and its team.
-- **Programs listing** — a publicly browsable directory of CDC programs, giving community members visibility into what is being done and where.
+- **Programs listing** — a publicly browsable directory of CDC programs with a detail modal showing dates, location, description, activity type, reach, and target beneficiaries. 
 
 The public website is kept in sync with the admin system automatically — programs approved and managed internally are surfaced here without any extra publishing step.
 
@@ -52,9 +107,12 @@ The public website is kept in sync with the admin system automatically — progr
 Programs are the heart of the system. Each program moves through a defined lifecycle from proposal to completion, with status tracked at every step.
 
 - Programs start in a `proposed` state and move through: `proposed` → `approved` → `ongoing` → `completed` (or `cancelled`).
-- Six categories with color coding: Health, Education, Infrastructure, Livelihood, Disaster Risk Reduction, and Social Services.
+- Seven program components with color coding,
+- Each program has an activity type, reach count, and target beneficiaries.
+- Programs can be inked to SDGs (auto-suggested, manually editable).
 - Programs can be linked to a specific geographic pin for location tracking.
 - Key dates (start and end) are recorded per program.
+- Date conflict warnings surface when a proposed program overlaps with an approved one. 
 
 ### Approval Workflow
 
@@ -64,7 +122,7 @@ A lightweight governance layer ensures that no program moves forward without pro
 - Super Admins review pending requests and approve or reject with a recorded reason.
 - Admins can withdraw a pending request before it is actioned.
 - Deletion of approved programs also goes through this workflow.
-- Only one pending request is allowed per program at a time.
+- Only one pending request is allowed per program at a time.*
 
 ### Budget Management
 
@@ -81,8 +139,8 @@ Budgets can only be created for approved programs, linking financial planning di
 The system organizes geographic coverage by barangay, reflecting the CDC's area-based approach to community work.
 
 - Create and manage barangay records with name, city, province, and geographic coordinates.
-- Search and filter by name, city, or province.
-- Each barangay can have multiple infrastructure pins associated with it.
+- Search and filter by name or by program component.
+- The community table shows per-barangay pin counts broken down by each of the 7 program components.
 - Deletion is restricted to Super Admins.
 
 ### Infrastructure & Pin Management
@@ -92,6 +150,7 @@ Pins represent physical sites or facilities in the community — from health pos
 - Each pin has a name, category, description, GPS coordinates, and status.
 - Pin statuses: `active`, `proposed`, `under-construction`, `needs-assessment`, `inactive`.
 - Pins are associated with a barangay and can be linked to programs.
+- The map sidebar reflects the 7 updated program components with correct color coding.
 
 ### Account Management
 
@@ -100,7 +159,7 @@ Password changes are user-based.
 
 - Strong password requirements: minimum 8 characters, mixed case, at least one number.
 - Accounts can be toggled active or inactive. Inactive accounts cannot log in.
-- Super Admins cannot deactivate their own account or other Super Admin accounts.
+- Super Admins cannot deactivate their own account. 
 
 ---
 
@@ -112,7 +171,8 @@ Password changes are user-based.
 | **Programs** | The central entity. Tracks title, description, category, status, dates, and an optional pin link. |
 | **Barangays** | Geographic districts. Store name, city, province, and coordinate data. |
 | **Pins** | Physical infrastructure sites with GPS coordinates, status, category, and barangay association. |
-| **Categories** | Six predefined classifications used for both programs and pins (with slug, label, and color). |
+| **Categories** | Seven predefined program components used for programs, pins, and community filtering (slug, label, color). |
+| **SDGs** | The 17 UN Sustainable Development Goals, each with a number, title, and color. Linked to programs via pivot. |
 | **Budgets** | One-to-one with Program. Stores allocated amount; totals are derived from line items. |
 | **Budget Items** | Expense line items belonging to a budget. Each has name, quantity, unit price, and auto-calculated total. |
 | **Program Requests** | Workflow records for approval or deletion requests. Tracks requester, actioner, status, and rejection reason. |
@@ -129,6 +189,9 @@ Password changes are user-based.
 - Cascade deletes at the database level (e.g., deleting a program removes its budget and requests).
 - Geographic coordinates stored as JSON.
 - Budget amounts use `decimal(12,2)` for financial precision.
+- SDG data seeded via SdgSeeder; program–SDG links stored in program_sdg pivot table.
+- Chart.js used for all dashboard visualizations, loaded via CDN.
+- Activity types and SDG auto-suggestions are defined as static arrays on the Program model and passed to JS via window.* variables.
 
 ### Security
 
@@ -136,7 +199,6 @@ Password changes are user-based.
 - Role-based access control separates admin and super admin capabilities.
 - Inactive accounts are blocked from logging in even with correct credentials.
 - Request validation is applied on all endpoints.
-- Enum validation prevents invalid status values from being stored.
 
 ---
 
@@ -163,31 +225,29 @@ PENDING REQUEST
 
 ---
 
-## Version 1.0 Scope & Limitations
+## Version 1.1 Scope & Limitations
 
-Version 1.0 is a strong, working foundation. The list below is an honest picture of what this version covers and where it stops — so the team can plan accordingly.
+**What Version 1.1 adds**
+- Admin dashboard with 8 charts and 2 summary tables
+- Restructured program components (7 components replacing 6 categories)
+- Activity type per program (component-specific dropdown)
+- Reach and target beneficiaries fields on programs
+- SDG tracking with auto-suggestion and manual selection
+- Updated community table with new component columns
+- Updated map filter chips to match new components
+- Public programs calendar now surfaces activity type, reach, and beneficiaries
+- Public website content updates across home, about, programs, partners, and footer
+- Dashboard as default admin landing page
 
-**What Version 1.0 covers**
-
-- Public-facing promotional website (home, about, programs)
-- Full CRUD for programs, barangays, pins, and budgets
-- Program approval and deletion workflows
-- Role-based access control (admin and super admin)
-- Budget line item management with automatic totals
-- Account management by Super Admins
-
-**Known limitations**
-
-- No soft deletes — deleted records are permanently removed. Recovery requires a database backup.
-- Budget line items require a full replacement on update; individual items cannot be edited in isolation.
+**Known limitations carried from v1.0**
+- Limited location detection
+- No soft deletes — deleted records are permanently removed.
+- Budget line items require a full replacement on update.
 - Budgets track planned allocation only — actual spending is not recorded.
-- No notification system — status changes are only visible on the next page load.
-- Map views are present in the interface but are not fully implemented in this version.
+- No notification system.
 - No data export functionality (PDF, Excel, etc.).
-- Reporting views exist but analytics depth is limited in v1.
-- No audit logging across most entities — budgets track who last updated, but other records do not.
-- Single-tenant design — no separation of data between multiple organizations.
-- No API authentication — the platform is designed for internal use via the web interface.
+- No audit logging across most entities.
+- No API authentication.
 
 ---
 
@@ -195,12 +255,11 @@ Version 1.0 is a strong, working foundation. The list below is an honest picture
 
 | Feature | Description |
 |---|---|
-| **Richer public pages** | Expand the public website with program detail pages, impact statistics, and photo/media support. |
 | **Soft deletes & audit logging** | Preserve deleted records and track who changed what across all entities. |
 | **Actual spend tracking** | Record real expenses against budgets, not just planned allocation. |
 | **Notifications** | Alert admins when requests are submitted, approved, or rejected. |
 | **Data export** | Export program lists, budget reports, and analytics to PDF or Excel. |
-| **Full map implementation** | Complete geographic views with pin layers, barangay boundaries, and filtering. |
+| **Richer public pages** | Program detail pages, impact statistics, and photo/media support. |
 | **Performance & pagination** | Optimize list views and enforce pagination for large datasets. |
 | **Mobile field access** | A lightweight view optimized for field workers on mobile devices. |
 
@@ -214,7 +273,7 @@ Version 1.0 is a strong, working foundation. The list below is an honest picture
 |---|---|---|
 | `GET` | `/` | Home page |
 | `GET` | `/about` | About page |
-| `GET` | `/programs` | Programs listing (read-only, no login required) |
+| `GET` | `/programs` | Programs calendar (public, no login required) |
 
 ### Authentication
 
@@ -223,6 +282,12 @@ Version 1.0 is a strong, working foundation. The list below is an honest picture
 | `GET` | `/admin/login` | Login form |
 | `POST` | `/admin/login` | Login submission |
 | `POST` | `/admin/logout` | Logout |
+
+### Dashboard
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/admin/dashboard` | Admin dashboard (default landing page) |
 
 ### Programs
 
@@ -281,4 +346,4 @@ Version 1.0 is a strong, working foundation. The list below is an honest picture
 
 ---
 
-*CDC Platform · Version 1.0 · Community Development Center · April 2026*
+*CDC Platform · Version 1.1 · Community Development Center · May 2026*
